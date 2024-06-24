@@ -4,6 +4,8 @@ import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:gradient_borders/box_borders/gradient_box_border.dart';
 
+import '../constant.dart';
+
 class ChatPage extends StatefulWidget {
   static const routeName  = '/chat';
   const ChatPage({Key? key}) : super(key: key);
@@ -18,7 +20,7 @@ class _ChatPageState extends State<ChatPage> {
   List<Map<String, dynamic>> _chatHistory = [];
 
   void getAnswer() async {
-    final url = "https://generativelanguage.googleapis.com/v1beta2/models/chat-bison-001:generateMessage?key=AIzaSyB0w4euozpGO2yCzV3q1CJfzKRm5LTZct4";
+    final url = "https://generativelanguage.googleapis.com/v1beta2/models/chat-bison-001:generateMessage?key=$googleKey";
     final uri = Uri.parse(url);
     List<Map<String,String>> msg = [];
     for (var i = 0; i < _chatHistory.length; i++) {
